@@ -1,8 +1,16 @@
-name: helloworld
-on: push
+name: first-action
+run-name: ${{ github.actor }} is learning Github Action
+on:
+  pull_request:
+    branches:
+      - 'develop'
+    types:
+      - opened
+      - closed
 jobs:
-  hello-job:
+  my-jobs:
     runs-on: ubuntu-latest
     steps:
-      - name: first
-        run: echo "hello world"
+      - name: first-step
+        run: echo 'Create pull request on develop'
+
